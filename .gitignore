@@ -7,6 +7,14 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
+# ambiente virtual
+.venv/ 
 
+# Banco de dados SQLite
+data.
+*.db
+*.sqlite
+*.sqlite3
+
+# Variáveis de ambiente
 .env
