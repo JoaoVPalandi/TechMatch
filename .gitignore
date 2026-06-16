@@ -11,7 +11,7 @@ wheels/
 .venv/ 
 
 # Banco de dados SQLite
-data.
+data
 *.db
 *.sqlite
 *.sqlite3
