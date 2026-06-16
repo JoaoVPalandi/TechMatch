@@ -1,29 +1,33 @@
-from sqlite3 import Connection, connect, Cursor
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.orm import DeclarativeBase
 from dotenv import load_dotenv
 import os
-import traceback
 
-load_dotenv() # Procura um arquivo .env com variáveis 
-DB_PATH = os.getenv('DATABASE', './data/lista.sqlite3')
+# Carrega as variáveis do arquivo .env
+load_dotenv()
 
-def init_db(db_name: str = DB_PATH):
-    with connect(db_name) as conn:
-        conn.execute("""
-        CREATE TABLE IF NOT EXISTS usuarios (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome VARCHAR(100) NOT NULL,
-        email VARCHAR(100) NOT NULL UNIQUE,
-        senha VARCHAR(200) NOT NULL,
-        tipo_conta VARCHAR(50) NOT NULL,
-        area VARCHAR(100),
-        tags_competencia TEXT
+# Pega o valor da variável DATABASE. Se não existir, usa o padrão.
+# O SQLAlchemy exige que caminhos do SQLite comecem com sqlite:///
+db_url = os.getenv("DATABASE", "sqlite:///data/techmatch.db")
+
+# Cria a conexão (engine)
+engine = create_engine(db_url)
+
+def init_db(db_name: str = db_url):
+    data_dir = os.path.join(os.getcwd(),"data")
+    
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir, exist_ok=True)
+    with engine.connect() as conn:
+        conn.execute(text("""
+        CREATE TABLE IF NOT EXISTS tarefas (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            titulo_tarefa TEXT NOT NULL,
+            data_conclusao TEXT,
+            concluida INTEGER DEFAULT 0    
         );
-        """)
-        
-class Database:
-    pass
+        """))
 
-    
-    
+# Classe Base que os models (Usuario, Vaga) vão herdar
+class Base(DeclarativeBase):
+    pass
