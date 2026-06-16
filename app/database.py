@@ -18,7 +18,7 @@ def init_db(db_name: str = db_url):
     
     if not os.path.exists(data_dir):
         os.makedirs(data_dir, exist_ok=True)
-    with engine.connect(db_name) as conn:
+    with engine.connect() as conn:
         conn.execute(text("""
         CREATE TABLE IF NOT EXISTS tarefas (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
