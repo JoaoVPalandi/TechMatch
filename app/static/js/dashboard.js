@@ -1,8 +1,9 @@
+// Aguarda o HTML carregar na tela
 window.onload = function() {
     const textoSaudacao = document.getElementById("saudacao");
     
-    if (textoSaudacao != null) {
-        const horaAgora = new Date().getHours(); 
+    if (textoSaudacao !== null) {
+        const horaAgora = new Date().getHours(); // Pega a hora do computador (ex: 14)
         
         if (horaAgora < 12) {
             textoSaudacao.innerText = "Bom dia, Empresa!";
@@ -15,13 +16,33 @@ window.onload = function() {
 
     const botaoSair = document.getElementById("btn-sair");
 
-    if (botaoSair != null) {
+    if (botaoSair !== null) {
         botaoSair.addEventListener("click", function(evento) {
-            const resposta = confirm("Deseja mesmo deslogar do TechMatch?");
+            const confirmou = confirm("Tem certeza que deseja sair?");
             
-            if (resposta == false) {
+            if (confirmou === false) {
                 evento.preventDefault();
             }
+        });
+    }
+
+    const campoBusca = document.getElementById("campo-busca");
+
+    if (campoBusca !== null) {
+        campoBusca.addEventListener("input", function() {
+            const textoDigitado = campoBusca.value.toLowerCase();
+            
+            const itensVagas = document.querySelectorAll(".item-vaga");
+
+            itensVagas.forEach(function(vaga) {
+                const cargo = vaga.querySelector(".titulo-cargo").innerText.toLowerCase();
+                
+                if (cargo.includes(textoDigitado)) {
+                    vaga.style.display = "flex";
+                } else {
+                    vaga.style.display = "none";
+                }
+            });
         });
     }
 

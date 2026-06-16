@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMatch - Criar Vaga</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vagas.css') }}">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <header class="barra-topo">
+            <div>
+                <h1>Criar Nova Vaga</h1>
+                <p>Preencha os requisitos para publicar no sistema.</p>
+            </div>
+            <a href="/dashboard" class="botao-cinza">Voltar ao Painel</a>
+        </header>
+
+        <main class="conteudo-vaga">
+            <form id="form-vaga" action="/dashboard" method="GET">
+                
+                <div class="grupo-campo">
+                    <label for="cargo-vaga">Título do Cargo</label>
+                    <input type="text" id="cargo-vaga" placeholder="Ex: Desenvolvedor Front-end Júnior" required>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="tech-input">Adicionar Tecnologias Obrigatórias</label>
+                    <div class="tags-input-wrapper">
+                        <input type="text" id="tech-input" placeholder="Ex: React">
+                        <button type="button" id="add-tag" class="botao-azul">+</button>
+                    </div>
+                    
+                    <div id="tags-container"></div>
+                    
+                    <input type="hidden" id="tecnologias_vaga" name="tecnologias">
+                </div>
+
+                <button type="submit" class="botao-azul botao-publicar">Publicar Oportunidade</button>
+            </form>
+        </main>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/vagas.js') }}"></script>
+</body>
+</html> 

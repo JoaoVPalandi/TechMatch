@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMatch - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+    <div class="caixa-formulario">
+        <h1>TechMatch</h1>
+        <p class="subtitulo">Faça login para acessar sua conta</p>
+
+        <form id="form-login" action="/dashboard" method="GET">
+            
+            <div class="grupo-campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="grupo-campo">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="botao-azul">Entrar</button>
+        </form>
+
+        <p class="link-rodape">Não tem conta? <a href="/registro">Cadastre-se aqui</a></p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>
