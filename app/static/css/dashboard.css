@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 20px;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Barra do Topo */
+.barra-topo {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.barra-topo h1 {
+    color: #38bdf8;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.barra-topo p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* Botões */
+.botao-azul, .botao-cinza {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.botao-azul {
+    background-color: #38bdf8;
+    color: #0f172a;
+}
+
+.botao-cinza {
+    background-color: #334155;
+    color: #f8fafc;
+}
+
+/* Cards de Resumo */
+.cards-resumo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.card-numero {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 4px solid #38bdf8;
+}
+
+.card-numero h3 {
+    font-size: 2rem;
+    color: #38bdf8;
+}
+
+.card-numero p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* Lista de Vagas */
+.secao-lista h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: #cbd5e1;
+}
+
+.lista-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-vaga {
+    background-color: #1e293b;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-vaga {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.status-aberta {
+    background-color: #065f46;
+    color: #34d399;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* === MUDANÇAS PARA COMPUTADOR === */
+@media (min-width: 768px) {
+    body { padding: 40px; }
+
+    .barra-topo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .barra-topo p { margin-bottom: 0; }
+    .botao-cinza { width: auto; }
+    .botao-azul { width: auto; padding: 12px 25px; }
+
+    .cards-resumo { flex-direction: row; }
+    .card-numero { flex: 1; }
+}
