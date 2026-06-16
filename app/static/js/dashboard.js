@@ -13,7 +13,6 @@ window.onload = function() {
         }
     }
 
-    // O elemento do botão vira const
     const botaoSair = document.getElementById("btn-sair");
 
     if (botaoSair != null) {

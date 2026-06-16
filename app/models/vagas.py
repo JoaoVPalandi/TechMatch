@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text
 from app.database import Base
 
-class Vaga(Base):
+class Vagas(Base):
     __tablename__ = 'vagas'
 
     id = Column(Integer, primary_key=True, autoincrement=True)

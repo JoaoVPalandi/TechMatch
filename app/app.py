@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from app.database import engine, Base
 from app.models.usuario import Usuario
-from app.models.vaga import Vaga
+from app.models.vagas import Vagas
 
 app = Flask(__name__)
 
