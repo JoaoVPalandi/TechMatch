@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMatch - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <header class="barra-topo">
+            <div>
+                <h1 id="saudacao">Olá, Empresa!</h1>
+                <p>Gerencie suas vagas e encontre desenvolvedores.</p>
+            </div>
+            <a href="/" id="btn-sair" class="botao-cinza">Sair do Sistema</a>
+        </header>
+
+        <section class="secao-botoes">
+            <a href="/vagas" class="botao-azul">+ Criar Nova Vaga</a>
+        </section>
+
+        <section class="cards-resumo">
+            <div class="card-numero">
+                <h3>3</h3>
+                <p>Vagas Abertas</p>
+            </div>
+            <div class="card-numero">
+                <h3>12</h3>
+                <p>Candidatos Inscritos</p>
+            </div>
+            <div class="card-numero">
+                <h3>5</h3>
+                <p>Matches Ativos</p>
+            </div>
+        </section>
+
+        <section class="secao-lista">
+            <h2>Suas Vagas Recentes</h2>
+            
+            <input type="text" id="campo-busca" placeholder="🔍 Digite para buscar por cargo ou tecnologia...">
+
+            <div class="lista-container">
+                
+                <div class="item-vaga">
+                    <div class="info-vaga">
+                        <strong class="titulo-cargo">Dev Front-end Júnior</strong>
+                        <span class="tags-tecnologias">HTML, CSS, JavaScript</span>
+                    </div>
+                    <span class="status-aberta">Aberta</span>
+                </div>
+
+                <div class="item-vaga">
+                    <div class="info-vaga">
+                        <strong class="titulo-cargo">Estagiário em Python</strong>
+                        <span class="tags-tecnologias">Python, Flask, SQL</span>
+                    </div>
+                    <span class="status-aberta">Aberta</span>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
