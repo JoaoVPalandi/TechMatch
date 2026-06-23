@@ -1,3 +1,4 @@
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase
 from dotenv import load_dotenv
@@ -10,15 +11,14 @@ db_url = os.getenv("DATABASE", "sqlite:///data/techmatch.db")
 
 engine = create_engine(db_url)
 
-def init_db(db_name: str = db_url):
-    data_dir = os.path.join(os.getcwd(),"data")
-    
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir, exist_ok=True)
-        
-    Base.metadata.create_all(engine)
-
-
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 class Base(DeclarativeBase):
     pass
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
